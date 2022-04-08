@@ -16,8 +16,8 @@ services:
   backend:
     container_name: bus-management-backend
     build: 
-      context: ./backend
-      dockerfile: ../docker/BackendDockerfile
+      context: ./
+      dockerfile: docker/BackendDockerfile
     command: ./docker/backend_setup.sh
     ports:
       - "8000:8000"
@@ -36,8 +36,8 @@ services:
   frontend:
     container_name: bus-management-frontend
     build:
-      context: ./frontend
-      dockerfile: ../docker/FrontendDockerfile    
+      context: ./
+      dockerfile: docker/FrontendDockerfile    
     command: ./docker/frontend_setup.sh
     ports:
       - "8080:8080"

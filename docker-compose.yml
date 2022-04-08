@@ -18,7 +18,7 @@ services:
     build: 
       context: ./
       dockerfile: docker/BackendDockerfile
-    command: ./docker/backend_setup.sh
+    command: sh -c " cd backend/bus_management_backend && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000 --settings=bus_management_backend.settings"  
     ports:
       - "8000:8000"
     environment:
@@ -38,7 +38,7 @@ services:
     build:
       context: ./
       dockerfile: docker/FrontendDockerfile    
-    command: ./docker/frontend_setup.sh
+    command: sh -c " cd frontend/ && npm install --silent && npm run serve"
     ports:
       - "8080:8080"
     volumes:

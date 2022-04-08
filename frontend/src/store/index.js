@@ -59,7 +59,7 @@ export default new Vuex.Store({
             commit("SET_SPINNER", true);
             return new Promise(resolve => {
                 setTimeout(async () => {
-                  const res = await axios.get(`http://0.0.0.0:8000/${type}`, { headers: { 'content-type': 'text/plain', } })
+                  const res = await axios.get(`http://127.0.0.1:8000/${type}`, { headers: { 'content-type': 'text/plain', } })
                     let val = JSON.parse(res.data.dataList)
                     resolve(val)
                     commit("SET_SPINNER", false);

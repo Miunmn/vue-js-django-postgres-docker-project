@@ -84,3 +84,15 @@ def drivers_crud(request):
     }
 
     return crud_template(request=request, switcher=switcher)
+
+
+@require_http_methods(["GET"])
+@csrf_exempt
+def filter_buses_from_journeys(request):
+    try:
+        response = journeys_buses_filter(request)
+    except Exception as e:
+        print(e)
+        HttpResponseBadRequest("Error al filtrar buses")
+
+    return response

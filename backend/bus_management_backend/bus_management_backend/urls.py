@@ -22,6 +22,7 @@ urlpatterns = [
     path('buses', buses_crud),
     path('drivers', drivers_crud),
     path('journeys', journeys_crud),
-    path('passengers', passengers_crud)
+    path('passengers', passengers_crud),
+    path('journeys-buses-filter', filter_buses_from_journeys)
 
 ]

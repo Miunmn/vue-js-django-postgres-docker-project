@@ -1,6 +1,5 @@
-# Destacame Buses
-Este proyecto fue realizado para poder registrar buses, trayectos, conductores y buses de una empresa 
-transportes.
+# Buses
+
 
 ## Instalación
 Hay 2 formas de ejecutar el proyecto, el primero con Docker y el segundo instalando dependencias.

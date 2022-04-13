@@ -17,7 +17,7 @@ class Buses(models.Model):
     plate = models.CharField(max_length=7, unique=True)
     years_of_service = models.IntegerField()
     capacity = models.IntegerField(default=10, null=False)
-    driver = models.OneToOneField(Drivers, on_delete=models.CASCADE, null=False, default=0, unique=True) 
+    driver = models.OneToOneField(Drivers, on_delete=models.CASCADE, null=False, unique=True) 
 
     class Meta:
         db_table = 'buses'

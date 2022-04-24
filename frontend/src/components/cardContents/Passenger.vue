@@ -48,7 +48,6 @@ export default {
 
         let element_id_key = "passenger_id";
 
-        console.log(element_id_key);
         await this.$store.dispatch("deleteElement", {
           type: "passengers",
           element_id: object_[element_id_key]

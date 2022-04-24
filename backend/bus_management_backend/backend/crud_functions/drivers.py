@@ -55,7 +55,6 @@ def drivers_post(request):
 def drivers_put(request):
     body_unicode = request.body.decode("utf-8")
     body = json.loads(body_unicode)
-    # print(body)
 
     try: 
         driver = Drivers.objects.get(driver_id=body['driver_id'])

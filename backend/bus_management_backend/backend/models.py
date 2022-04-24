@@ -29,7 +29,6 @@ class Journeys(models.Model):
     to_city = models.CharField(max_length=50, default='')
     buses = models.ManyToManyField(Buses)
     date = models.DateTimeField()
-    # assigned_bus = models.ForeignKey(Buses, on_delete=models.CASCADE)
     class Meta:
         db_table = 'journeys'
 

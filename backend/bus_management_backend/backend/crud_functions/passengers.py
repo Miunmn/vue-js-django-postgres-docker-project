@@ -11,7 +11,6 @@ def passengers_get(request):
     except Exception as e:
         raise e
 
-    # print(elements)
 
     dataList = list(elements)
 
@@ -28,7 +27,6 @@ def passengers_get(request):
         dataList[i]['bus_plate']=bus
         dataList[i]['journey_name']=journey
 
-    # print(dataList)
 
 
     return JsonResponse({"dataList": json.dumps(dataList)})
@@ -69,7 +67,6 @@ def passengers_post(request):
 def passengers_put(request):
     body_unicode = request.body.decode("utf-8")
     body = json.loads(body_unicode)
-    # print(body)
 
     try: 
         passenger = Passengers.objects.get(pk=body['passenger_id'])

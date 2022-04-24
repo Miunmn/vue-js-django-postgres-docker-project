@@ -2,7 +2,6 @@ from nis import cat
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
-# from httplib2 import Response
 from django.http import HttpResponseBadRequest
 
 #CRUD Functions 

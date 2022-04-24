@@ -196,12 +196,10 @@ export default {
       }
     },
     parseNum(scope) {
-      console.log(scope);
       if (parseInt(scope.value) > 100) scope.value = 100;
       if (isNaN(parseInt(scope.value))) scope.value = 0;
     },
     filterBuses() {
-      // console.log(parseInt(this.idTrayectoSearch), parseInt(this.cantidad));
 
       const fetchBuses = async () => {
         this.filtered_buses = [];
@@ -226,7 +224,6 @@ export default {
       this.filtered_buses = [];
     },
     editContents(data) {
-      console.log("data recibida", data);
       this.prevData = data;
     }
   }

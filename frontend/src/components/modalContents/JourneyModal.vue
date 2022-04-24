@@ -80,12 +80,9 @@
 export default {
   props: ["type", "data"],
   beforeMount() {
-    // this.$store.commit("changeSpinner");
     this.getBuses();
-    // this.$store.commit("changeSpinner");
   },
   data() {
-    //   this.getData()
     let cities = [
       { value: "ciudad1", text: "ciudad1" },
       { value: "ciudad2", text: "ciudad2" },
@@ -95,7 +92,6 @@ export default {
       { value: "ciudad6", text: "ciudad6" }
     ];
 
-    // console.log({...this.data})
 
     let prevData = { ...this.data };
     return {
@@ -143,11 +139,8 @@ export default {
 
       formData["busList"] = this.parseBusList(formData["busList"]);
 
-      // console.log(formData)
 
       const agregarElemento = async () => {
-        // let formData = {...this.form}
-        // console.log(formData)
         await this.$store.dispatch("storeObject", {
           formData,
           type: this.type
@@ -163,17 +156,13 @@ export default {
     },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
 
       this.form.journey_name = "";
       this.form.from_city = "";
       this.form.to_city = "";
-      // this.form.assigned_bus = "";
-      // this.form.assigned_driver = "";
       this.form.date = "";
       this.form.hour = "";
 
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
@@ -185,7 +174,6 @@ export default {
         .dispatch("fetchData", { type: "buses?available=1" })
         .then(response => {
           let options = [];
-          // console.log(response)
           for (let bus of response) {
             options.push({ text: bus.plate, value: bus.bus_id });
           }

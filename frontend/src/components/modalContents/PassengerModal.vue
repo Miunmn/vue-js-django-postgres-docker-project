@@ -44,14 +44,10 @@
 export default {
   props: ["type", "data"],
   beforeMount() {
-    // this.$store.commit("changeSpinner");
     this.getJourneys();
-    // this.getDrivers()
-    // this.$store.commit("changeSpinner");
   },
   data() {
     let prevData = { ...this.data };
-    console.log(prevData);
     return {
       journey_options: [],
       buses_options: [],
@@ -73,8 +69,7 @@ export default {
       let formData = { ...this.form };
 
       const agregarElemento = async () => {
-        // let formData = {...this.form}
-        // console.log(formData)
+
         formData["passenger_id"] = this.allData["passenger_id"];
         if (this.createMode) {
           await this.$store.dispatch("storeObject", {
@@ -87,10 +82,7 @@ export default {
             type: this.type
           });
         }
-        // await this.$store.dispatch("storeObject", {
-        //   formData,
-        //   type: this.type
-        // });
+
       };
       agregarElemento();
     },
@@ -100,7 +92,6 @@ export default {
         .dispatch("fetchData", { type: "journeys" })
         .then(response => {
           let options = [];
-          // console.log(response)
           for (let journey of response) {
             options.push({
               text: journey.journey_name,

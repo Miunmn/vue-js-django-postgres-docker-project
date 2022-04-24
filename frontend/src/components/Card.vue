@@ -48,7 +48,6 @@ export default {
   },
   data() {
     return {
-      // type: this.type,
       parsedData: { ...this.data }
     };
   },
@@ -61,7 +60,6 @@ export default {
           if (element.indexOf("id") > -1) return element;
         });
 
-        console.log(element_id_key);
         await this.$store.dispatch("deleteElement", {
           type: this.type,
           element_id: object_[element_id_key]

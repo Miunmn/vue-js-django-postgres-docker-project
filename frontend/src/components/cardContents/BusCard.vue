@@ -50,17 +50,11 @@
 </template>
 
 <script>
-// import ModalAddElement from "../ModalAddElement.vue";
 
 export default {
   props: ["parsedData", "editContents"],
   data() {
     return {};
-  },
-  // components: { "modal-content": ModalAddElement },
-
-  beforeMount() {
-    console.log({ ...this.parsedData });
   },
   methods: {
     deleteFunction() {
@@ -69,7 +63,6 @@ export default {
 
         let element_id_key = "bus_id";
 
-        console.log(element_id_key);
         await this.$store.dispatch("deleteElement", {
           type: "buses",
           element_id: object_[element_id_key]

@@ -41,8 +41,6 @@ export default {
   props: ["type", "data"],
   data() {
     let prevData = { ...this.data };
-    console.log(prevData);
-
     return {
       createMode: Object.keys(prevData).length === 0,
       form: {
@@ -84,12 +82,10 @@ export default {
     },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
 
       this.form.first_name = "";
       this.form.last_name = "";
       this.form.age = "";
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;

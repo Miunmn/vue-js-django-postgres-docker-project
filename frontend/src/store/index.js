@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
-// import { resolve,reject } from "core-js/fn/promise";
 
 Vue.use(Vuex);
 
@@ -29,7 +28,6 @@ export default new Vuex.Store({
       commit("SET_SPINNER", !current_spinner);
     },
     async storeObject({ commit, dispatch }, { formData, type }) {
-      // console.log(dispatch, formData)
       commit("SET_SPINNER", true);
       new Promise(async resolve => {
         await axios
@@ -52,16 +50,13 @@ export default new Vuex.Store({
       });
     },
     async deleteElement({ commit, dispatch }, { type, element_id }) {
-      console.log("type, element_id", type, element_id);
       commit("SET_SPINNER", true);
       let request = new Promise(async resolve => {
-        // console.log('ejecutar')
         const res = await axios.delete(
           `http://127.0.0.1:8000/${type}?element_id=${element_id}`,
           { headers: { "content-type": "text/plain" } }
         );
 
-        //Hacer request de la lista de elementos
         const myJson = await dispatch("fetchData", { type });
         commit("SET_DATA", myJson);
 
@@ -74,7 +69,6 @@ export default new Vuex.Store({
       });
     },
     async fetchData({ commit }, { type }) {
-      // console.log("3f2f23323f243gg34g34g4343g", type);
       commit("SET_SPINNER", true);
       return new Promise(resolve => {
         setTimeout(async () => {
@@ -112,11 +106,8 @@ export default new Vuex.Store({
       });
     },
     async fetchJobs({ commit, dispatch }, { type }) {
-      // console.log("type", type)
       const myJson = await dispatch("fetchData", { type });
       commit("SET_DATA", myJson);
-
-      // dispatch("updatePagination", { myJson, currentPage: 1, perPage: 3 });
       return myJson;
     }
   },

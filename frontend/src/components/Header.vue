@@ -20,16 +20,8 @@
 
 <script>
 export default {
-  methods: {
-    // search() {
-    //   // console.log(this.searchText);
-    //   this.$store.dispatch("search", { text: this.searchText });
-    // }
-  },
   data() {
-    return {
-      // searchText: ""
-    };
+    return {};
   }
 };
 </script>

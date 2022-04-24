@@ -18,8 +18,7 @@
 
 <script>
 import Header from "./components/Header.vue";
-// import { mapGetters } from "vuex";
-// import router from "vue-router"
+
 export default {
   name: "app",
   components: { "top-header": Header },
@@ -60,7 +59,6 @@ export default {
   padding: 30px;
 
   a {
-    // font-weight: bold;
     color: white;
     font-size: 19px;
     line-height: 44px;

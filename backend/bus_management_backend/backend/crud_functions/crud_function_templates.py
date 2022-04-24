@@ -2,7 +2,6 @@
 from django.http import JsonResponse
 from django.core import serializers
 import json
-# from httplib2 import Response
 
 def get_template(model):
     try:
@@ -11,7 +10,6 @@ def get_template(model):
     except Exception as e:
         raise e
 
-    # print(elements)
 
     dataList = list(elements)
 

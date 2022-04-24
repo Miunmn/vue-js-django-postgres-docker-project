@@ -1,6 +1,3 @@
-
-# from httplib2 import Responses
-
 from math import floor
 from django.http import JsonResponse
 from backend.models import Journeys, Buses, Passengers
@@ -33,13 +30,11 @@ def journeys_get(request):
 
         busList =  list(journeyModelObject.buses.all().values())
 
-        #Calcular cantidad de pasajeros por bus
         cant_passengers = 0
         for bus in busList:
             bus_passengers = passengers.filter(bus_id=bus.get('bus_id')).count()
             bus['number_passengers'] = bus_passengers
             cant_passengers += bus_passengers
-            # print(bus.get('bus_id'))
 
 
 
@@ -48,12 +43,10 @@ def journeys_get(request):
         
         cant_buses = len(busList)
 
-        # cant_passengers = passengers.filter(journey_id=journey_id).count()
 
         journey['date']=journey['date'].strftime("%Y %m %d %H:%m")
         journey['passengers'] = floor(cant_passengers/cant_buses)
 
-    # print("dataList", dataList)
     return JsonResponse({"dataList": json.dumps(listOfJourneys)}) 
 
 
@@ -66,11 +59,6 @@ def journeys_post(request):
     for field in field_list:
         if field not in body:
             raise f"""Missing field {field}"""
-
-
-    print(body)
-
-    # bus = Buses.objects.get(bus_id=body['assigned_bus'])
 
     new_journey = Journeys(
         journey_name=body['journey_name'], from_city=body['from_city'], to_city=body['to_city'], date=body['date']
@@ -142,7 +130,6 @@ def journeys_buses_filter(request):
             buses_response.append(bus_obj)
 
     dataList = list(buses_response)
-    # print(dataList)
     
     return JsonResponse({"dataList": json.dumps(dataList)})
 

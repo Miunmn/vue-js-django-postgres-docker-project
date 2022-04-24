@@ -54,11 +54,7 @@
 export default {
   props: ["type", "data"],
   data() {
-    // console.log({...this.data}, this.type)
-
     let prevData = { ...this.data };
-    // console.log("prevData", prevData)
-
     return {
       driver_options: [],
       createMode: Object.keys(prevData).length === 0,
@@ -97,11 +93,9 @@ export default {
     },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
 
       this.form.plate = "";
       this.form.years_of_service = "";
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
@@ -112,14 +106,12 @@ export default {
         .dispatch("fetchData", { type: "drivers?available=1" })
         .then(response => {
           let options = [];
-          // response = response.filter(element=> element.has_assigned_bus === false)
           for (let driver of response) {
             options.push({
               text: `${driver.first_name} ${driver.last_name}`,
               value: driver.driver_id
             });
           }
-          // console.log(options)
           this.driver_options = options;
         })
         .catch(error => {

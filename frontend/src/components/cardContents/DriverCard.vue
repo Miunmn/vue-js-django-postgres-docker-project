@@ -43,7 +43,6 @@ export default {
   props: ["parsedData", "deleteFunction", "editContents"],
   methods: {
     handleEdit() {
-      // console.log("Asa")
       this.editContents(this.parsedData);
     }
   }

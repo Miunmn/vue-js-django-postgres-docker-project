@@ -58,7 +58,6 @@
 export default {
   props: ["parsedData", "deleteFunction", "editContents"],
   beforeMount() {
-    console.log(this.parsedData.buses);
     this.parseDate();
   },
   methods: {

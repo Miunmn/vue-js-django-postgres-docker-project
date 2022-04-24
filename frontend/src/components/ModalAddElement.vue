@@ -32,7 +32,6 @@ export default {
       Object.keys({ ...this.updateData }).length === 0
         ? null
         : { ...this.updateData };
-    console.log(prevData_);
     return {
       data: prevData_
     };
